@@ -1,0 +1,51 @@
+{
+    "comment": "Chozoi-Recommendation",
+    "id": "default",
+    "description": "Default settings",
+    "engineFactory": "com.actionml.RecommendationEngine",
+    "datasource": {
+        "params": {
+            "name": "chozoi-datasource",
+            "appName": "chozoi-universal-recommender-2",
+            "eventNames": ["buy", "view", "rating", "add-to-cart"],
+            "eventWindow": {
+                "duration": "3650 days",
+                "removeDuplicates": false,
+                "compressProperties": false
+            }
+        }
+    },
+    "sparkConf": {
+        "spark.serializer": "org.apache.spark.serializer.KryoSerializer",
+        "spark.kryo.registrator": "org.apache.mahout.sparkbindings.io.MahoutKryoRegistrator",
+        "spark.kryo.referenceTracking": "false",
+        "spark.kryoserializer.buffer": "300m",
+        "spark.executor.memory": "4g",
+        "spark.executor.cores": "2",
+        "spark.task.cpus": "2",
+        "spark.default.parallelism": "16",
+        "spark.es.index.auto.create": "true",
+        "spark.es.nodes": "elasticsearch",
+        "spark.es.nodes.wan.only": "true"
+    },
+    "algorithms": [{
+        "comment": "Chozoi-Recommendation",
+        "name": "ur",
+        "params": {
+            "appName": "chozoi-universal-recommender-2",
+            "indexName": "chozoi_index",
+            "typeName": "items",
+            "comment": "must have data for the first event or the model will not build, other events are optional",
+            "eventNames": ["buy", "view", "rating", "add-to-cart"],
+            "recsModel": "collabFiltering",
+            "unseenOnly": false
+        },
+        "indicators": [{
+            "name": "buy"
+        }, {
+            "name": "view"
+        }, {
+            "name": "rating"
+        }]
+    }]
+}
