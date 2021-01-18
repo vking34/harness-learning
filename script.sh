@@ -8,12 +8,11 @@ docker cp ./engines/engine1.json `docker ps -aqf "name=harness-cli"`:/data/engin
 docker-compose exec harness-cli bash
 
 #
-cd /data
-hctl add engine1.json
+hctl add /data/engine1.json
 
 #
+docker-compose logs -f harness
 python ./samples/import_handmade.py --file ./samples/sample-handmade-data.txt
-python ./samples/import_handmade.py --file ./samples/cz-sample-data.txt
 
 #
 hctl train 1

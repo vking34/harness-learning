@@ -1,0 +1,34 @@
+{
+    "engineId": "1",
+    "engineFactory": "com.actionml.engines.ur.UREngine",
+    "sparkConf": {
+        "master": "local",
+        "spark.serializer": "org.apache.spark.serializer.KryoSerializer",
+        "spark.kryo.registrator": "org.apache.mahout.sparkbindings.io.MahoutKryoRegistrator",
+        "spark.kryo.referenceTracking": "false",
+        "spark.kryoserializer.buffer": "300m",
+        "spark.executor.memory": "4g",
+        "spark.driver.memory": "3g",
+        "spark.es.index.auto.create": "true",
+        "spark.es.nodes": "elasticsearch",
+        "spark.es.nodes.wan.only": "true"
+    },
+    "algorithm": {
+        "indicators": [{
+                "name": "buy"
+            },
+            {
+                "name": "view"
+            },
+            {
+                "name": "add-to-cart"
+            },
+            {
+                "name": "rating"
+            }
+        ],
+        "expireDateName": "expires",
+        "availableDateName": "available",
+        "dateName": "date"
+    }
+}
