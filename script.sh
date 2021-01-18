@@ -4,15 +4,16 @@ mkdir -p ./docker-persistence/es/data
 sudo chmod 777 ./docker-persistence/es/data
 
 docker-compose up -d
-docker cp ./templates/universal-recommender/engine.json `docker ps -aqf "name=harness-cli"`:/data/engine.json
+docker cp ./engines/engine1.json `docker ps -aqf "name=harness-cli"`:/data/engine1.json
 docker-compose exec harness-cli bash
 
 #
-cd /data/universal-recommender
-hctl add engine.json
+cd /data
+hctl add engine1.json
 
 #
 python ./samples/import_handmade.py --file ./samples/sample-handmade-data.txt
+python ./samples/import_handmade.py --file ./samples/cz-sample-data.txt
 
 #
 hctl train 1

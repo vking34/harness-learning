@@ -2,7 +2,7 @@ version: '3'
 services:
   
   harness:
-    restart: always
+    # restart: always
     image: actionml/harness:develop
     container_name: harness
     ports:
@@ -19,7 +19,7 @@ services:
       - ${HARNESS_DATA}:/data
       
   mongo:
-    restart: always
+    # restart: always
     image: mongo:4.2
     container_name: mongo
     command: --logappend --logpath=/tmp/mongod.log
@@ -30,7 +30,7 @@ services:
       - ${MONGO_DATA}:/data/db
 
   elasticsearch:
-    restart: always
+    # restart: always
     image: elasticsearch:7.6.0
     container_name: elasticsearch
     environment:
@@ -43,7 +43,7 @@ services:
       - ${ES_DATA}:/usr/share/elasticsearch/data
 
   harness-cli:
-    restart: always
+    # restart: always
     image: actionml/harness-cli:develop
     container_name: harness-cli
     environment:
@@ -52,7 +52,7 @@ services:
     - ${HARNESS_DATA}:/data
 
   watchtower:
-    restart: always
+    # restart: always
     image: v2tec/watchtower
     container_name: watchtower
     volumes:

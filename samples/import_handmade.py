@@ -69,8 +69,10 @@ def import_events(file, url):
         count += 1
         current_date += event_time_increment
 
-    items = ['Iphone 6', 'Ipad-retina', 'Nexus',
-             'Surface', 'Iphone 4', 'Galaxy', 'Iphone 5']
+    # items = ['Iphone 6', 'Ipad-retina', 'Nexus',
+    #          'Surface', 'Iphone 4', 'Galaxy', 'Iphone 5']
+    items = ['1796', '1795', '1794',
+             '1793', '1792', '1791', '1797', '1789', '1788', '1787']
     print("All items: " + str(items))
     for item in items:
         resp = requests.post(url, json={
