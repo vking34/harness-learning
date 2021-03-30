@@ -10,6 +10,10 @@
 772,view,1787
 772,view,1788
 772,view,1789
+773,view,1788
+773,view,1788
+774,view,1788
+775,view,1786
 1796,$set,categories:658:508:473
 1795,$set,categories:658:508:473
 1794,$set,categories:658:508:473
@@ -20,3 +24,4 @@
 1789,$set,categories:458:454:453
 1788,$set,categories:458:454:453
 1787,$set,categories:458:454:453
+1786,$set,categories:658:508:472

@@ -1,5 +1,5 @@
 {
-    "engineId": "1",
+    "engineId": "2",
     "engineFactory": "com.actionml.engines.ur.UREngine",
     "sparkConf": {
         "master": "local",
@@ -15,10 +15,10 @@
     },
     "algorithm": {
         "indicators": [{
-                "name": "buy"
+                "name": "view"
             },
             {
-                "name": "view"
+                "name": "buy"
             },
             {
                 "name": "add-to-cart"
@@ -27,6 +27,8 @@
                 "name": "rating"
             }
         ],
-        "recsModel": "collabFiltering"
+        "expireDateName": "expires",
+        "availableDateName": "available",
+        "dateName": "date"
     }
 }
